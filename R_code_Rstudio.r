@@ -42,13 +42,13 @@ v <- "october"
 v <- "november" #per aggiornare il contenuto di una variabule
 print(v) # trova info sulla funzione, in questo caso il valore
 
-great <_ "Hello World!"
+great <- "Hello World!"
 print(great)
 
 #c1 è un nomne, 1c no
 
-
-
+#stackoverflow: per le domande su eventuali errori
+#altrimenti si può porre come domanda, es: "how to assign a variable inR"
 
 
 
