@@ -269,7 +269,7 @@ str(lst_4)
 #3) le colonne devono avere tutte la stessa lunghezza
 
 #Creare un dataframe
-dat <- data.frame(a = 1:10, b = LETTERS [1:10], C = rep(C(TRUE, FALSE), 5))
+dat <- data.frame(a = 1:10, b = LETTERS[1:10], c = rep(c(TRUE, FALSE), 5))
 dat
 dim(dat)
 nrow(dat)          #righe
@@ -279,6 +279,83 @@ typeof(dat)        #tipo
 str(dat)          #dice osservazioni e variabili
 names(dat)         #dice i nomi delle colonne
 names(dat) <- c("col1", "col2", "col3")       #cambiare i nomi
+
+###SETTIMA LEZIONE
+
+
+
+
+
+
+
+#### OTTAVA LEZIONE
+
+#Dataframes: sono dati bidimensionali e possono avere qualsiasi tipo di dato, con colonne omogenee all'interno (che possono contenere vettori atomici o liste).
+#diverse colonne possono avere tipi di dati diversi
+#Dataframes sono delle liste di vettori (ogni colonna è una componente della lista)
+#sono un sottinsieme delle liste perchè ciascuna colonna deve avere un nome.
+
+#Creare un dataframe
+dat <- data.frame(a = 1:10, b = LETTERS [1:10], c = rep(c(TRUE, FALSE), 5))
+
+str(dat)          #dice osservazioni (righe) e variabili (colonne)
+names(dat)         #dice i nomi delle colonne
+names(dat) <- c("col1", "col2", "col3")       #cambiare i nomi
+
+#indicizzare un dataframe (accedere a singole righe, colonne, ottenere vettori o estrarre dataframe)
+dat[1, ]   #per estrarre una sola riga, con tutte le colonne, una lista
+dat[2:3, ] #per estrarre quelle 2 righe
+
+dat[ , 2]   #per estrarre la seconda COLONNA; è un VETTORE di tipo caracter
+dat[ , 2:3]   #per quelle 2 colonne
+
+
+dat[2]      #estrae una lista che contiene SOLO quella componente
+
+dat[[2]]    #estrae SOLO quella componente, si ottiene un vettore
+
+dat$col2    #fanno la stessa cosa
+dat[["col2"]]
+
+dat[1, 1] #
+dat[1:2, 2:3]     #
+
+dat$col1 <= 5
+dat[dat$col1 <= 5, ]       #
+
+###Modificare un dataframe: si combina l'indicizzazione con l'assegnazione
+
+dat$col4 <- letters[1:10]     #assegnare una nuova colonna
+dat
+
+dat$col4 <- NULLM     #eliminare la colonna
+dat
+
+dat[1,1] <-10         #per cambiare un singolo valore
+dat
+
+#Unide dataframe
+dat_1 <- data.frame(genus = c("Silene", "Pinus"), has_flower = c(TRUE, FALSE), n = c(10, 2))
+dat_2 <- data.frame(genus = c("Malus"), has_flower = c(TRUE), n = c(1))
+
+dat_3 <- rbind(dat_1, dat_2)        #unire dati
+dat_3
+
+is_herbaceous <- c(TRUE, FALSE, FALSE)
+is_herbaceous
+dat_4 <- cbind(dat_3, is_herbaceous)   #dataframe con 3 righe e 4 colonne
+
+names(dat_4)[4] <- "is_perennial"     #modificare SOLO nome colonna
+
+
+
+
+
+
+
+
+
+
 
 
 
