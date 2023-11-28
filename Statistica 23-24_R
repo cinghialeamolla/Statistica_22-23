@@ -79,7 +79,12 @@ read.table("tabella.txt", header=T)   # legge il file, ma la prima riga sono le 
 #  1 25  30  45  50
 #  2 10 100 150 200
 
+dati2_statisticaconR <- read.csv2("statisticaconR.csv")   # assegna un nome al file letto su R
 
+write.csv2(dati2_statisticaconR, file="esportato")  # salvare in formato excel un oggetto
+
+read.csv2("FacoltàEconomia_2007.csv", row.names=1)   # esercizio in classe: row.names imposta come prima colonna i valori presenti (senza aggiungere 1,2,3,ecc)
+read.csv2("FacoltàEconomia_2008.csv", row.names=1)
 
 
 
