@@ -60,13 +60,17 @@ fix(X)    # apre una finestra da cui si possono cambiare gli elementi della matr
 setwd("C:/R/")               # settare la directory "R" posizionata su "C"
 read.table("tabella.txt")    # per leggere i dati sul file.txt
 
-#  V1 V2  V3        -> nomi assunti dalle variabili; 1,2,3,4   ->numero di righe
+#  V1 V2  V3        # -> nomi assunti dalle variabili; 1,2,3,4   ->numero di righe
 # 1 X1 X2  X3
 # 2  1 10 100
 # 3  2 20 200
 # 4  3 30 300
 
-
+read.table("tabella.txt", header=T)   # legge il file, ma la prima riga sono le etichette delle variabili
+#   X1 X2  X3
+# 1  1 10 100
+# 2  2 20 200
+# 3  3 30 300
 
 
 
