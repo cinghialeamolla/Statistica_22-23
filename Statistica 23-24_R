@@ -1,28 +1,49 @@
-# seconda lezione
+####### seconda lezione
 
 numeri <- c(1, 2, 3)
 numeri
+str(numeri)
+# num [1:3] 1 2 3
 
 colori <- c("rosso", "giallo", "verde")
 colori
 # [1] "rosso"  "giallo" "verde" 
 
-str(numeri)
-#num [1:3] 1 2 3
-
 logico <- c(T, F)
 logico
-#[1]  TRUE FALSE
+# [1]  TRUE FALSE
 str(logico)
-#logi [1:2] TRUE FALSE
+# logi [1:2] TRUE FALSE
 
 #creazione matrice
 X <- matrix(c(3,0,6,0,6,9), nrow=3, ncol=2)
 X
-#     [,1] [,2]
-#[1,]    3    0
-#[2,]    0    6
-#[3,]    6    9
+#      [,1] [,2]
+# [1,]    3    0
+# [2,]    0    6
+# [3,]    6    9
 str(X)
 # num [1:3, 1:2] 3 0 6 0 6 9
+
+colori[2]  #chiedere quale elemento occupa la seconda posizione nell'oggetto "colori"
+# [1] "giallo"
+
+colori[c(1,3)] #chiedere quali elementi occupano la prima e la terza posizione nell'oggetto "colori"
+# [1] "rosso" "verde"
+
+colori[-c(1,3)]  # quali sono gli elementi che NON sono in posizione 1 e 3
+# [1] "giallo"
+
+
+which(colori=="giallo")  # a che indice corrisponde l'elemnto giallo nel vettore colori
+# [1] 2
+which(colori=="nero")
+# integer(0)  #nero non è un elemento del vettore "colori"
+
+numeri[1] <- 100   # assegnare il numero 100 al vettore "numeri" nell'indice 1
+numeri
+# [1] 100   2   3
+
+
+
 
