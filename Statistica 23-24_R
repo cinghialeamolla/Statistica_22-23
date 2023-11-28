@@ -57,8 +57,15 @@ data.entry(X)  # apre un'interfaccia grafica simile a excel da cui si possono mo
 fix(numeri) # apre una finestra da cui si possono cambiare gli elementi del vettore "numeri"
 fix(X)    # apre una finestra da cui si possono cambiare gli elementi della matrice "X" (in questo caso, apre l'editor del data.entry)
 
-setwd("C:/R/")               # settare la directory
+setwd("C:/R/")               # settare la directory "R" posizionata su "C"
 read.table("tabella.txt")    # per leggere i dati sul file.txt
+
+#  V1 V2  V3        -> nomi assunti dalle variabili; 1,2,3,4   ->numero di righe
+# 1 X1 X2  X3
+# 2  1 10 100
+# 3  2 20 200
+# 4  3 30 300
+
 
 
 
