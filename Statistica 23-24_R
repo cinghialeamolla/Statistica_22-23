@@ -57,6 +57,9 @@ data.entry(X)  # apre un'interfaccia grafica simile a excel da cui si possono mo
 fix(numeri) # apre una finestra da cui si possono cambiare gli elementi del vettore "numeri"
 fix(X)    # apre una finestra da cui si possono cambiare gli elementi della matrice "X" (in questo caso, apre l'editor del data.entry)
 
+setwd("C:/R/")               # settare la directory
+read.table("tabella.txt")    # per leggere i dati sul file.txt
+
 
 
 
