@@ -75,9 +75,10 @@ read.table("tabella.txt", header=T)   # legge il file, ma la prima riga sono le 
 
  read.csv2("statisticaconR.csv")        # legge il file csv (delimitato da separatore di elenco), la prima riga sono di default le etichette delle variabili
 
-#   X1  X2 X3  X4
-# 1 25  30 45  50
-# 2 10 100 50 200
+#    X1  X2  X3  X4
+#  1 25  30  45  50
+#  2 10 100 150 200
+
 
 
 
