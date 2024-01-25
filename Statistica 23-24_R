@@ -1,3 +1,16 @@
+####### prima lezione
+
+q()  # serve per chiudere le finestre di lavoro
+
+ls()  # serve per mostrare quali oggetti ci sono nel nostro spazio di lavoro
+
+rm()  # serve a cancellare 1 o + oggetti nel workspace; l'oggetto da cancellare va tra ()
+
+rm(list=ls())  # rimuove TUTTO quello che c'è nel w.s.
+
+save(object1, object2, file="filename.rda")  #salva gli oggettimnominati nel file "filename" in estensione .rda
+
+
 ####### seconda lezione 28/11/2023
 
 numeri <- c(1, 2, 3)
