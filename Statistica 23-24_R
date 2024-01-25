@@ -105,6 +105,88 @@ read.csv2("FacoltàEconomia_2008.csv", row.names=1)
 ECONOMIA2007 <- read.csv2("FacoltàEconomia_2007.csv", row.names=1)   
 ECONOMIA2008 <- read.csv2("FacoltàEconomia_2008.csv", row.names=1)
 
+ECONOMIA2007[1:3,1:5]  # serve per vedere le prime 3 osservazioni (università) delle prime 5 variabili (parametri in colonna)
+
+str(ECONOMIA2007)  # per vedere la struttura del file
+
+# per chiedere cosa contengono le singole variabili:
+
+str(ECONOMIA2007$Iscritti)   # 
+str(ECONOMIA2007$Erasmus)
+str(ECONOMIA2007$Studenti)  
+#  int [1:56] 56 72 51 80 48 70 55 64 41 45 ...   # integer
+
+# OPERAZIONI ARITMETICHE SUI VETTORI
+numeri<-c(1,2,3)      # creo il vettore
+numerisomma<-numeri+1    # Sommiamo il numero 1 al vettore numeri e lo assegniamo al vettore numerisomma
+numerisomma
+
+numerisottrazione<-numeri-1   # Sottraiamo il numero 1 al vettore numeri e lo assegniamo al vettore numerisottrazione
+numerisottrazione
+
+numerimoltiplicazione<-numeri*2     # Moltiplichiamo lo scalare 2 per il vettore numeri e lo assegniamo al vettore numerimoltiplicazione
+numerimoltiplicazione
+
+numeridivisione<-numeri/2       # dividiamo il vettore numeri per lo scalare 2 e lo assegniamo al vettore numeridivisione
+numeridivisione
+
+# OPERAZIONI ARITMETICHE TRA VETTORI
+# I due vettori devono avere la stessa lunghezza o comunque la dimensione del vettore minore deve essere un sottomultiplo di quello dell’altro
+
+numeri2 <- c(1:6)    # vettore formato da numeri da 1 a 6 
+numeri+numeri2       # somma dei due vettori
+
+numeri3<-c(1:4)      # vettore con numeri da 1 a 4 (non sottomultiplo del vettore "numeri")
+numeri+numeri3       # il sistema da un warning  
+
+# SEQUENZE REGOLARI DI VALORI CRESCENTI/DECRESCENTI
+1:5
+# [1] 1 2 3 4 5
+5:1
+# [1] 5 4 3 2 1
+
+#  VALORI MANCANTI
+is.na(ECONOMIA2007)   # genera un vettore logico di uguale lunghezza del vettore passato in argomento, con valori TRUE se mancanti e FALSE se presenti
+
+# i dati mancanti vanno eliminati o sostituiti
+PROVA<-c(1,1,NA,NA)   # creo il vettore "PROVA"
+
+# ELIMINARE
+PROVA1<-PROVA[!is.na(PROVA)]     # costruire un nuovo vettore PROVA1, così il vettore PROVA1 conterrà solo valori validi
+
+# SOSTITUIRE
+PROVA[is.na(PROVA)]<-0           # Sostituisce con degli zero i valori mancanti al vettore "PROVA"
+
+# STATISTICHE DESCRITTIVE
+
+# calcolare le principali statistiche descrittive del dataset ECONOMIA2007
+
+attach(ECONOMIA2007)  # Per poter lavorare con le variabili contenute neldataset
+
+detach(ECONOMIA2007)  # alla fine del nostro lavoro
+
+# 1) La funzione min( ) individua il valore più PICCOLO contenuto nel vettore passato in argomento  
+attach(ECONOMIA2007)
+min(Iscritti)
+# [1] 590
+
+# 2) La funzione max( ) individua il valore più GRANDE contenuto nel vettore passato in argomento
+max(Iscritti)
+# [1] 12520
+
+# 3) La funzione mean( ) calcola la MEDIA ARITMETICA dei valori del vettore passato in argomento
+mean(Iscritti) 
+# [1] 4010.518
+
+# 4) La funzione median( ) calcola la MEDIANA dei valori del vettore passato in argomento
+median(Iscritti)
+# [1] 3275
+
+
+
+
+
+
 
 
 
