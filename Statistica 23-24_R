@@ -182,13 +182,28 @@ mean(Iscritti)
 median(Iscritti)
 # [1] 3275
 
+# 5) La funzione quantile( ) calcola i QUANTILI dei valori del vettore passato in argomento
+quantile(Iscritti)
+#      0%     25%     50%     75%    100% 
+#  590.0  2067.5  3275.0  5692.5 12520.0 
 
+# 6) Con la funzione summary( ) si ottengono conuna sola istruzione e contemporaneamente tutte le statistiche descrittive viste singolarmente
+summary(Iscritti)
+# Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#  590    2068    3275    4011    5692   12520 
 
+# summary può essere usata per l'intero dataframe
+summary(ECONOMIA2007)
 
+# 7) La funzione var( ) calcola la VARIANZA CAMPIONRIA (ottenuta dividendo il numeratore per (n-1)) dei valori del vettore passato in argomento
+# La varianza della popolazione (che richiede di essere invece divisa per n) si ottiene moltiplicando la varianza campionaria per (n-1)/n
 
+var(Iscritti)   # varianza campionaria
+# [1] 7090554
 
-
-
+var(Iscritti)*(length(Iscritti)-1)/length(Iscritti)   # varianza della popolazione
+# [1] 6963937
+detach(ECONOMIA2007)
 
 
 
