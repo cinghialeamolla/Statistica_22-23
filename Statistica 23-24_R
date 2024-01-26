@@ -205,6 +205,199 @@ var(Iscritti)*(length(Iscritti)-1)/length(Iscritti)   # varianza della popolazio
 # [1] 6963937
 detach(ECONOMIA2007)
 
+### quarta lezione
+
+a <- c(1, 2, 3)
+b <- c(2, 4, 6)
+
+rbind(a, b)     # Accoppiare per riga
+
+cbind(a, b)     # Accoppiare per colonna
+
+A <- matrix(1:30, 5, 6)    # creare una matrice
+A+2             # Somma di una matrice e di un numero
+
+seq(1:30)    # sequenza da 1 a 30
+# [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+
+seq(1, 30, 2)   # sequenza da 1 a 30 saltando di 2 (tt i numeri dispari)
+#  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29
+
+rep(1, 30)      # ripete 1 per 30 volte
+# [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+A*2    # moltiplicazione matrice x numero
+
+B <- matrix(1:30, 5, 6, byrow=T)
+A+B      # somma tra matrici
+
+A*B     # moltiplicazione tra matrici
+
+C <- matrix(1:12, 3, 4)
+D <- matrix(0, 4, 3)     # matrice nulla con 4 righe e 3 colonne
+
+D[,1] <- c(0, 1, 0, 1)
+D[,2] <- c(0, 1, 1, 1)
+D[,3] <- c(1, 0, 1, 0)
+
+C%*%D       # prodotto tra due matrici
+
+z <- 1:4
+C%*%z        # prodotto matrice x vettore
+
+t(C)    # La “trasposizione” scambia le righe con le colonne
+
+
+D <- matrix(0, 4, 3)   # crea matrice nulla
+diag(D) <- 1    # trasforma matrice nulla in una diagonale
+
+D2 <- diag(rep(1, 4))     # crea matrice DIAGONALE
+
+D3 <- diag(seq(2, 8, by=2))     # matrice diagonale con numeri pari
+
+#### DATASET IRIS
+
+iris[1:150,]
+iris3
+
+# Media Aritmetica
+
+mean(iris$Sepal.Length) 
+# [1] 5.843333
+mean(iris$Sepal.Width) 
+# [1] 3.057333
+mean(iris$Petal.Length) 
+# [1] 3.758
+mean(iris$Petal.Width) 
+# [1] 1.199333
+
+# DISTRIBUZIONI DI FREQUENZA
+
+table(iris[,4])     # per il carattere 4 (Petal.Width)
+#0.1 0.2 0.3 0.4 0.5 0.6  1  1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9  2  2.1 2.2 2.3 2.4 2.5    # lunghezze dei petali dei 150 individui
+# 5  29   7   7   1   1   7   3   5  13   8  12   4   2  12   5   6   6   3   8   3   3     # numero di individui con ciascuna lunghezza
+
+# Mediana
+
+median(iris$Sepal.Length) 
+# [1] 5.8
+median(iris$Sepal.Width) 
+# [1] 3
+median(iris$Petal.Length) 
+# [1] 4.35
+median(iris$Petal.Width) 
+# [1] 1.3
+
+# Moda   # valore più rappresentato
+# esempio, per Sepal.Length
+
+table(iris[,1])
+# 4.3 4.4 4.5 4.6 4.7 4.8 4.9  5 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9   6 6.1 6.2 6.3 6.4 6.5 6.6 6.7 6.8 6.9   7 7.1 7.2 7.3 7.4 7.6 7.7 7.9 
+#  1   3   1   4   2   5   6  10   9   4   1   6   7   6   8   7   3   6   6   4   9   7   5   2   8   3   4   1   1   3   1   1   1   4   1 
+
+ # 10 è la distribuzione più grande e corrisponde al 5 (Moda)
+
+ sort(table(iris[,1]))    # più comodo, perchè le ordina per grandezza
+
+ sort(table(iris[,5]))
+
+# Distribuzioni congiunte: Sintetizzare dati bivariati con un minor numero di modalità rispetto alle unità
+# Unità= 150
+# Lunghezza del sepalo: numero di modalità= 35
+# Larghezza del sepalo: numero di modalità= 23
+
+table(iris$Sepal.Length) 
+str(table(iris$Sepal.Length))
+#  'table' int [1:35(1d)] 1 3 1 4 2 5 6 10 9 4 ...
+# - attr(*, "dimnames")=List of 1
+#  ..$ : chr [1:35] "4.3" "4.4" "4.5" "4.6" ...
+
+table(iris$Sepal.Width) 
+str(table(iris$Sepal.Width))
+# 'table' int [1:23(1d)] 1 3 4 3 8 5 9 14 10 26 ...
+# - attr(*, "dimnames")=List of 1
+#  ..$ : chr [1:23] "2" "2.2" "2.3" "2.4" ...
+
+A <- table(iris$Sepal.Length, iris$Sepal.Width)    # distribuzione congiunta
+
+# Distribuzioni marginali: la distribuzione di ciascuna di queste variabili individuali. In una tabella a due vie sono mostrate ai margini della tabella
+
+margin.table(A, 1)
+
+margin.table(A, 2)
+
+addmargins(A)    # rappresentazione tabulare
+
+# CHI QUADRO
+
+chisq.test(table(iris$Sepal.Length, iris$Sepal.Width))
+# Pearson's Chi-squared test
+# data:  table(iris$Sepal.Length, iris$Sepal.Width)
+# X-squared = 784.28, df = 748, p-value = 0.1735
+
+# chisq.test(iris$Sepal.Length, iris$Sepal.Width)
+
+# Correlazione di Pearson: Associazione lineare tra due variabili numeriche
+
+cor(iris[,1:4])
+#              Sepal.Length Sepal.Width Petal.Length Petal.Width
+# Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
+# Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
+# Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
+# Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000
+
+# cor() puù essere usato anche per calcolare una matrice di correlazione. es: cor(X)
+
+cor(iris[,1], iris[,3])
+# [1] 0.8717538
+
+### ESERCIZIO
+# verificare che: cor (Sepal.Length, Petal.Length ) è uguale al seguente rapporto
+# cov (Sepal.Length, Petal.Length ) / (scarto quadratico medio (Sepal.Length)* scarto quadraticomedio(Petal.Length ))
+
+cor(iris[,1], iris[,3])
+# [1] 0.8717538
+cov(iris[,1], iris[,3])
+# [1] 1.274315
+sd(iris[,1])
+# [1] 0.8280661
+sd(iris[,3])
+# [1] 1.765298
+cov(iris[,1], iris[,3])/(sd(iris[,1])*sd(iris[,3]))
+# [1] 0.8717538
+
+# Regressione lineare semplice: La retta di regressione della variabile dipendente Y sulla variabile indipendente X, indicata con Ŷ è la funzione lineare b0 + b1X
+# Ŷ = b0 + b1x
+
+x <- c(7, 1, 4)
+y <- c(1, -11, 25)
+cov(x,y)
+# [1] 18
+
+var(x)
+# [1] 9
+
+b1 <- cov(x,y)/var(x)
+b1
+#[1] 2
+
+b0 <- mean(y)-b1*mean(x)
+b0
+# [1] -3
+
+### yhat= -3+2*x
+
+### I residui (della retta di regressione) sono dati dalla differenza tra la variabile dipendente e la retta di regressione
+# E = Y-Ŷ
+
+##### DATASER IRIS
+attach(iris)
+plot(Sepal.Width[1:50],Sepal.Length[1:50])
+# grafico
+cor(Sepal.Length[1:50],Sepal.Width[1:50])
+# [1] 0.7425467
+
+
 
 
 
